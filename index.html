@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yulieth Rodríguez - Brinsa Tarjeta Digital</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-blue: #00208b; /* Azul Brinsa */
+            --secondary-blue: #00a0df;
+            --white: #ffffff;
+            --light-gray: #f4f4f4;
+        }
 
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        body {
+            background-color: var(--light-gray);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Control de Suscripción Invisible */
+        #subscription-status {
+            display: none;
+        }
+
+        .card {
+            background: var(--white);
+            width: 100%;
+            max-width: 400px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .header-bg {
+            background: var(--primary-blue);
+            height: 120px;
+            position: relative;
+        }
+
+        .logo-container {
+            background: white;
+            width: 180px;
+            height: 70px;
+            margin: -35px auto 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container img {
+            max-width: 90%;
+            height: auto;
+        }
+
+        .profile-info h1 {
+            color: var(--primary-blue);
+            font-size: 1.6rem;
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            color: #666;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .brands-strip {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+            padding: 0 10px;
+        }
+
+        .brands-strip span {
+            font-weight: bold;
+            color: var(--secondary-blue);
+            font-size: 0.8rem;
+            border: 1px solid var(--secondary-blue);
+            padding: 4px 10px;
+            border-radius: 15px;
+        }
+
+        .action-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            padding: 20px;
+        }
+
+        .btn {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            color: white;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+
+        .btn i {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .btn-call { background: var(--primary-blue); }
+        .btn-wom { background: #25d366; }
+        .btn-fb { background: #1877f2; }
+        .btn-ig { background: #e4405f; }
+        .btn-catalog { 
+            background: #ff4b2b; 
+            grid-column: span 2;
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .footer {
+            padding: 20px;
+            font-size: 0.7rem;
+            color: #999;
+            background: #f9f9f9;
+            border-top: 1px solid #eee;
+        }
+
+        .footer strong {
+            color: #444;
+        }
+
+        /* Responsividad */
+        @media (max-width: 350px) {
+            .action-buttons {
+                grid-template-columns: 1fr;
+            }
+            .btn-catalog { grid-column: span 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="subscription-status" data-expiry="2027-03-16"></div>
+
+    <div class="card" id="main-card">
+        <div class="header-bg"></div>
+        
+        <div class="logo-container">
+            <img src="brinsa.PNG" alt="Logo Brinsa">
+        </div>
+
+        <div class="profile-info">
+            <h1>Yulieth Rodríguez</h1>
+            <p>Vendedora Autorizada – BRINSA</p>
+        </div>
+
+        <div class="brands-strip">
+            <span>Refisal</span>
+            <span>Blancox</span>
+            <span>Lozacrem</span>
+        </div>
+
+        <div class="action-buttons">
+            <a href="tel:+573135780204" class="btn btn-call">
+                <i class="fas fa-phone"></i> LLAMAR
+            </a>
+            <a href="https://wa.me/573135780204?text=Hola%20Yulieth,%20deseo%20información%20de%20productos%20Brinsa" class="btn btn-wom">
+                <i class="fab fa-whatsapp"></i> WHATSAPP
+            </a>
+            <a href="https://www.facebook.com/share/14UHAwvBqu3/" target="_blank" class="btn btn-fb">
+                <i class="fab fa-facebook"></i> FACEBOOK
+            </a>
+            <a href="https://www.instagram.com/distrileco_caucasia?igsh=MTJjcWZmbzd4ODJsbQ==" target="_blank" class="btn btn-ig">
+                <i class="fab fa-instagram"></i> INSTAGRAM
+            </a>
+            <a href="brinsa1.pdf" target="_blank" class="btn btn-catalog">
+                <i class="fas fa-file-pdf"></i> VER CATÁLOGO DE PRODUCTOS
+            </a>
+        </div>
+
+        <div class="footer">
+            <p>Fecha de emisión: 16 de Marzo, 2026</p>
+            <p>App desarrollada por <strong>Vibras Positivas (3117700431)</strong></p>
+            <p>&copy; Todos los derechos reservados.</p>
+        </div>
+    </div>
+
+    <script>
+        // Lógica de control de suscripción invisible
+        const subData = document.getElementById('subscription-status');
+        const expiryDate = new Date(subData.getAttribute('data-expiry'));
+        const today = new Date();
+
+        if (today > expiryDate) {
+            document.getElementById('main-card').innerHTML = 
+                "<div style='padding:50px; color:red;'><h3>Servicio Suspendido</h3><p>Por favor contacte al desarrollador.</p></div>";
+        }
+    </script>
+</body>
+</html>
