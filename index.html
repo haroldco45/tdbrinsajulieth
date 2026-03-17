@@ -9,7 +9,7 @@
     
     <style>
         :root {
-            --primary-blue: #00208b; /* Azul Brinsa */
+            --primary-blue: #00208b;
             --secondary-blue: #00a0df;
             --white: #ffffff;
             --light-gray: #f4f4f4;
@@ -31,10 +31,7 @@
             padding: 20px;
         }
 
-        /* Control de Suscripción Invisible */
-        #subscription-status {
-            display: none;
-        }
+        #subscription-status { display: none; }
 
         .card {
             background: var(--white);
@@ -67,10 +64,7 @@
             z-index: 2;
         }
 
-        .logo-container img {
-            max-width: 90%;
-            height: auto;
-        }
+        .logo-container img { max-width: 90%; height: auto; }
 
         .profile-info h1 {
             color: var(--primary-blue);
@@ -90,7 +84,7 @@
         .brands-strip {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             margin-bottom: 25px;
             padding: 0 10px;
         }
@@ -98,15 +92,15 @@
         .brands-strip span {
             font-weight: bold;
             color: var(--secondary-blue);
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             border: 1px solid var(--secondary-blue);
-            padding: 4px 10px;
+            padding: 4px 8px;
             border-radius: 15px;
         }
 
         .action-buttons {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(2, 1fr); /* Esto crea 2 columnas fijas */
             gap: 15px;
             padding: 20px;
         }
@@ -121,27 +115,23 @@
             border-radius: 15px;
             transition: all 0.3s ease;
             color: white;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: bold;
+            border: none;
         }
 
-        .btn i {
-            font-size: 1.5rem;
-            margin-bottom: 8px;
-        }
+        .btn i { font-size: 1.5rem; margin-bottom: 8px; }
 
         .btn-call { background: var(--primary-blue); }
         .btn-wom { background: #25d366; }
         .btn-fb { background: #1877f2; }
         .btn-ig { background: #e4405f; }
-        .btn-catalog { 
-            background: #ff4b2b; 
-            grid-column: span 2;
-        }
+        
+        /* Ajuste para que los dos catálogos se vean iguales */
+        .btn-brinsa { background: #ff4b2b; }
+        .btn-portafolio { background: #00208b; }
 
-        .btn:active {
-            transform: scale(0.95);
-        }
+        .btn:active { transform: scale(0.95); }
 
         .footer {
             padding: 20px;
@@ -151,16 +141,8 @@
             border-top: 1px solid #eee;
         }
 
-        .footer strong {
-            color: #444;
-        }
-
-        /* Responsividad */
         @media (max-width: 350px) {
-            .action-buttons {
-                grid-template-columns: 1fr;
-            }
-            .btn-catalog { grid-column: span 1; }
+            .action-buttons { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -199,8 +181,12 @@
             <a href="https://www.instagram.com/distrileco_caucasia?igsh=MTJjcWZmbzd4ODJsbQ==" target="_blank" class="btn btn-ig">
                 <i class="fab fa-instagram"></i> INSTAGRAM
             </a>
-            <a href="brinsa1.pdf" target="_blank" class="btn btn-catalog">
-                <i class="fas fa-file-pdf"></i> VER CATÁLOGO DE PRODUCTOS
+            
+            <a href="brinsa1.pdf" target="_blank" class="btn btn-brinsa">
+                <i class="fas fa-file-pdf"></i> CATÁLOGO BRINSA
+            </a>
+            <a href="portafolio1.pdf" target="_blank" class="btn btn-portafolio">
+                <i class="fas fa-briefcase"></i> PORTAFOLIO 1
             </a>
         </div>
 
@@ -212,11 +198,9 @@
     </div>
 
     <script>
-        // Lógica de control de suscripción invisible
         const subData = document.getElementById('subscription-status');
         const expiryDate = new Date(subData.getAttribute('data-expiry'));
         const today = new Date();
-
         if (today > expiryDate) {
             document.getElementById('main-card').innerHTML = 
                 "<div style='padding:50px; color:red;'><h3>Servicio Suspendido</h3><p>Por favor contacte al desarrollador.</p></div>";
